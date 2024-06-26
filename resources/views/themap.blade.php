@@ -56,6 +56,7 @@
 				z-index: 1000;
 				box-shadow: 2px 0px 15px #908989;
 				overflow-y: scroll;
+				overflow-x: hidden;
 			}
 
 			.topsidediv {
@@ -273,6 +274,11 @@
 
 			#theslider li img {
 				width: 100%;
+			}
+
+			.action_btn:hover {
+				color:red;
+				cursor: pointer;
 			}
 		</style>
 	</head>
