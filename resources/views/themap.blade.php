@@ -479,8 +479,14 @@
 			var big_lat 	= null;
 			var big_lng 	= null;
 
+			// https://api.mapbox.com/tilesets/v1/sources/{username}/{id}
+			// https://tile.openstreetmap.org/{z}/{x}/{y}.png
+			// mapbox://styles/alvinmerto/clxvo8ecc00w501r22nwz74ob
+			// outdoors-v9
+			// 
+
 			var map = L.map('map').setView([7.941825906384453, 124.49841490156703], 9);
-				L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWx2aW5tZXJ0byIsImEiOiJjazM3MjBobDEwN3ZvM21wemx6aG5tNHlqIn0.ch2yPYUkeOn1ih6nbfAm1A', {
 				    maxZoom: 19,
 				    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
@@ -780,7 +786,7 @@
 				var the_tab = $(this).data("the_tab");
 
 				$(this).siblings().hide();
-				$(this).
+				// $(this).
 			})
 		</script>
 	</body>
