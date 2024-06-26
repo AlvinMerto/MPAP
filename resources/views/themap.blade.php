@@ -140,6 +140,7 @@
 				margin-bottom: 0px;
 				border-bottom: 1px solid #ccc;
 				display:flex;
+				margin-top:0px;
 			}
 
 			.thenavigation ul li{
@@ -157,14 +158,14 @@
 			}
 
 			.thecont_main ul {
-				margin-top: 7px;
+				margin-top: 0px;
 			    padding-left: 0px;
 			}
 
 			.thecont_main ul li {
 				list-style: none;
 				border-bottom: 1px solid #ccc;
-				padding: 7px 0px 0px 9px;
+				padding: 0px 0px 0px 9px;
 				font-size: 13px;
 			}
 
@@ -221,7 +222,7 @@
 			}
 
 			.the_desc_txt {
-				font-size: 16px;
+				font-size: 14px;
 			}
 
 			.thetopdiv {
@@ -305,14 +306,14 @@
 						</div>
 					</div>
 					<div class="thetopdiv">
-						<h2 style="font-size: 23px;font-weight: normal;" id='the_proj_title'> This is the Title of the Project </h2>
+						<h2 style="font-size: 19px;font-weight: normal;" id='the_proj_title'> This is the Title of the Project </h2>
 						<p style="font-size: 13px;" id="the_funder"> GIZ Initiated Project </p>
 					</div>
 					<div class="themaincontent">
 						<div class="thenavigation">
-							<ul>
-								<li class="selected"> The Project </li>
-								<li> The Donor </li>
+							<ul id='the_info_nav'>
+								<li class="selected" data-the_tab="the_project"> The Project </li>
+								<li data-the_tab="the_donor_div"> The Donor </li>
 								<!-- <li> Pictures </li> -->
 							</ul>
 						</div>
@@ -327,17 +328,17 @@
 										</div> 
 									</li> -->
 									<li>
+										<!-- <div> <span class="material-symbols-outlined"> description </span>  </div> -->
+										<div> 
+											<span class='the_div_title'> Project Description </span> 
+											<p class='the_desc_txt' id="the_desc"> This is the project description of the project, lorem ipsum dolor set amit </p>
+										</div> 
+									</li>
+									<li>
 										<div> <span class="material-symbols-outlined"> favorite </span>  </div>
 										<div>
 											<span class='the_div_title'> Donor Agency </span> 
 											<p class='the_desc_txt' id='the_donor'> GIZ </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> description </span>  </div>
-										<div> 
-											<span class='the_div_title'> Project Description </span> 
-											<p class='the_desc_txt' id="the_desc"> This is the project description of the project, lorem ipsum dolor set amit </p>
 										</div> 
 									</li>
 									<li>
@@ -398,7 +399,7 @@
 									</li>
 								</ul>
 							</div>
-							<div id="the_donor">
+							<div id="the_donor_div">
 
 							</div>
 						</div>
@@ -770,7 +771,16 @@
 				slider.animate({
 					"margin-left":margin+"px"
 				});
+			});
 
+			$(document).on("click","#the_info_nav li", function(){
+				// the_project
+				// the_donor_div
+
+				var the_tab = $(this).data("the_tab");
+
+				$(this).siblings().hide();
+				$(this).
 			})
 		</script>
 	</body>
