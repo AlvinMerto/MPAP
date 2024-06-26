@@ -16,7 +16,7 @@ use App\Http\Controllers\ThemapController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("/map");
 });
 
 Route::get("/map", [ThemapController::class,"index"]);

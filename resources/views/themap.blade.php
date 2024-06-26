@@ -227,9 +227,9 @@
 				padding: 19px;
 			}
 
-			.the_pictures img {
+			/*.the_pictures img {
 				width:100%;
-			}
+			}*/
 
 			.nav_top {
 				display: flex;
@@ -258,6 +258,22 @@
 				width: 100%;
 				padding: 7px;
 			}
+
+			#theslider {
+				width: 3000px;
+				  padding: 0px;
+				  margin: 0px;
+			}
+
+			#theslider li{
+				width: 400px;
+				list-style: none;
+				display: inline-block;
+			}
+
+			#theslider li img {
+				width: 100%;
+			}
 		</style>
 	</head>
 	<body>
@@ -272,7 +288,15 @@
 				</div> -->
 				<div class="thecontent">
 					<div class="the_pictures">
-						<img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/>
+						<ul id="theslider">
+							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
+							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
+							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
+						</ul>
+						<div style="text-align:center;">
+							<span class="material-symbols-outlined action_btn" data-btn="prev"> arrow_back_ios </span>
+							<span class="material-symbols-outlined action_btn" data-btn="next"> arrow_forward_ios </span>
+						</div>
 					</div>
 					<div class="thetopdiv">
 						<h2 style="font-size: 23px;font-weight: normal;" id='the_proj_title'> This is the Title of the Project </h2>
@@ -401,7 +425,10 @@
 							</td>
 						</tr>
 						<tr> 
-							<td> <button class="btn btn-primary" id='thefilter'> Filter </button> </td>
+							<td> 
+								<button class="btn btn-primary" id='thefilter'> Filter </button> 
+								<button id='refreshbtn'> Clear Filter </button>
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -587,7 +614,19 @@
 
 				marker.clearLayers();
 
+				map.setView([7.941825906384453, 124.49841490156703], 8);
+
+				var ls = $(document).find("#leftsidediv");
+
+				ls.animate({
+					width: "0"+"px"
+				},300);
+
 				get_points(sector, funder);
+			});
+
+			$(document).on("click","#refreshbtn", function(){
+				window.location.reload();
 			});
 				
 			$(document).ready(function(){
@@ -699,6 +738,34 @@
 			 	 }
 			  });
 			}
+
+			var margin = 0;
+
+			$(document).on("click",".action_btn", function(){
+				var btn = $(this).data('btn');
+
+				var slider = $(document).find("#theslider");
+				var len    = slider.children().length-1;
+
+				var max_len = (404*len);
+
+				if (btn == "prev") {
+					margin = parseInt(margin)+404;
+				} else if (btn == "next") {
+					margin = parseInt(margin)-404;
+				};
+				alert(margin)
+				if (margin == "-1212") {
+					margin = 0;
+				} else if (margin >= 404) {
+					margin = "-"+max_len;
+				}
+
+				slider.animate({
+					"margin-left":margin+"px"
+				});
+
+			})
 		</script>
 	</body>
 </html>
