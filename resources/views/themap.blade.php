@@ -754,7 +754,7 @@
 				} else if (btn == "next") {
 					margin = parseInt(margin)-404;
 				};
-				alert(margin)
+		
 				if (margin == "-1212") {
 					margin = 0;
 				} else if (margin >= 404) {
