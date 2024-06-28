@@ -338,9 +338,8 @@
 
 			#refreshbtn {
 				font-size: 12px;
-				  margin-left: 10px;
-				  text-decoration: underline;
-				  cursor: pointer;
+			  text-decoration: underline;
+			  cursor: pointer;
 			}
 		</style>
 	</head>
@@ -493,8 +492,8 @@
 							</td>
 						</tr> -->
 						<tr> 
-							<td> 
-								<button class="btn btn-primary" id='thefilter'> Filter </button> 
+							<td style="padding: 8px 0px;"> 
+								<!-- <button class="btn btn-primary" id='thefilter'> Filter </button>  -->
 								<a id='refreshbtn'> Clear Filter </a>
 							</td>
 						</tr>
