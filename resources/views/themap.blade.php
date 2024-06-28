@@ -67,7 +67,7 @@
 				z-index: 10000;
 				margin-top: 10px;
 				margin-left: 410px;
-				overflow-x:scroll;
+				overflow-x:hidden;
 				scroll-behavior: smooth;
 			}
 
