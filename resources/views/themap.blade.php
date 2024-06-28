@@ -71,6 +71,10 @@
 				scroll-behavior: smooth;
 			}
 
+			.topsidediv:hover {
+				overflow-x: scroll;
+			}
+
 			.topsidediv ul {
 				padding-left: 0px;
 				width: max-content;
