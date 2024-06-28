@@ -13,7 +13,27 @@ class ThemapController extends Controller
     //
 
     function index() {
-        return view("themap");
+        $collection = ProjectsTbl::get("projectdonortext");
+
+        $funders = [];
+
+        foreach($collection as $c) {
+            if (!in_array($c->projectdonortext, $funders)) {
+                array_push($funders, $c->projectdonortext);
+            }
+        }
+
+        // $sectors = ProjectsTbl::get("sector")->toArray();
+
+        // $the_return = [];
+
+        // foreach($sectors as $c) {
+        //     if (!in_array($c['sector'], $the_return)) {
+        //         array_push($the_return, $c['sector']);
+        //     }
+        // }
+
+        return view("themap", compact("funders"));
     }
 
     function theareas(Request $req) {
@@ -30,11 +50,11 @@ class ThemapController extends Controller
             $collection = ProjectsTbl::all();    
         }
         
-        if ($sector != "false") {
+        if ($sector != "false" && $funder == "false") {
             $collection = ProjectsTbl::where("sector",$sector)->get();
         }
 
-        if ($funder != "false") {
+        if ($funder != "false" && $sector == "false") {
             $collection = ProjectsTbl::where("projectdonortext",$funder)->get();
         }
 

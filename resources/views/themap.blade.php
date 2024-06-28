@@ -60,7 +60,7 @@
 			}
 
 			.topsidediv {
-				height: 75;
+				padding-bottom: 15px;
 				width: 72%;
 				position: fixed;
 				top: 0;
@@ -74,6 +74,7 @@
 			.topsidediv ul {
 				padding-left: 0px;
 				width: max-content;
+				margin: 0px 0px;
 			}
 
 			.topsidediv ul li {
@@ -239,15 +240,21 @@
 
 			.the_box {
 				float: right;
-				  width: 300px;
-				  background: #fff;
-				  padding: 10px;
-				  box-shadow: 0px 0px 10px #b4b4b4;
-				  position: fixed;
-				  top: 0;
-				  right: 0;
-				  z-index: 100000;
-				  margin: 10px;
+			  width: 300px;
+			  background: #fff;
+			  padding: 17px;
+			  position: fixed;
+			  bottom: 0;
+			  right: 0;
+			  z-index: 100000;
+			  margin: 10px;
+			  border-radius: 10px;
+			  opacity: 0.5;
+			}
+
+			.the_box:hover {
+				opacity:10;
+				box-shadow: 0px 0px 26px #6e6d6d;
 			}
 
 			.table_right {
@@ -280,6 +287,56 @@
 			.action_btn:hover {
 				color:red;
 				cursor: pointer;
+			}
+
+			.h_p {
+				font-size: 13px;
+  				margin-bottom: 5px;
+			}
+
+			.selected_top {
+				background: #15629b !important;
+			  color: #fff !important;
+			  font-weight: bold !important;
+			  box-shadow: 0px 0px 5px #000 !important;
+			  border-radius: 0px !important;
+			}
+
+			.selected_top:hover > ul{
+				display:block;
+			}
+
+			.the_sub_ul {
+				display: none;
+				  position: fixed;
+				  left: 10px;
+				  margin-top: 8px !important;
+				display: none;
+				background: #fff;
+  				box-shadow: 0px 7px 7px #000;
+			}
+
+			.the_sub_ul li{
+				display: block !important;
+				  border-radius: 0px !important;
+				  margin-bottom: 3px;
+			}
+
+			#thefilter {
+				padding: 7px 14px;
+			  margin-top: 3px;
+			  background: #1d9feb;
+			  border: 1px solid #fff;
+			  border-radius: 6px;
+			  color: #fff;
+			  font-size: 14px;
+			}
+
+			#refreshbtn {
+				font-size: 12px;
+				  margin-left: 10px;
+				  text-decoration: underline;
+				  cursor: pointer;
 			}
 		</style>
 	</head>
@@ -412,38 +469,51 @@
 						<tr>
 							<td>
 								<p> Filter the Map </p>
-								<hr/>
+								<hr style="border:0px; border-bottom:1px solid #ccc;"/>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<p> Sectors </p>
-								<select id='the_sectors' class="btn btn-default">
+								<p class="h_p"> Sectors </p>
+								<select id='the_sectors' style="font-weight: bold;font-family: arial;font-size: 13px; padding:10px;">
 										
 								</select>
 							</td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<td>
-								<p> Funder </p>
-								<select id='the_funders' class="btn btn-default">
+								<p class="h_p"> Funder </p>
+								<select id='the_funders' style="font-weight: bold;font-family: arial;font-size: 13px; padding:10px;">
 										
 								</select>
 							</td>
-						</tr>
+						</tr> -->
 						<tr> 
 							<td> 
 								<button class="btn btn-primary" id='thefilter'> Filter </button> 
-								<button id='refreshbtn'> Clear Filter </button>
+								<a id='refreshbtn'> Clear Filter </a>
 							</td>
 						</tr>
 					</table>
 				</div>
-		<!-- <div class="topsidediv"> -->
+		<div class="topsidediv">
 				<!-- <div class=""> <span class="material-symbols-outlined"> menu </span> </div> -->
-				<!-- <ul id='the_sectors_'> </ul> -->
-				
-		<!-- </div> -->
+				<ul id='the_sectors_top'>
+					<li class="selected_top"> all </li>
+					<?php
+						foreach($funders as $f) {
+							echo "<li>";
+								echo $f;
+								// echo "<ul class='the_sub_ul'>";
+								// 	foreach($the_return as $tr) {
+								// 		echo "<li> {$tr} </li>";
+								// 	}
+								// echo "</ul>";
+							echo "</li>";
+						}
+					?>
+				</ul>		
+		</div>
 
 		<div id="right_side">
 			<div style="padding: 0px 20px;" id='general_info'>
@@ -485,7 +555,7 @@
 			// outdoors-v9
 			// 
 
-			var map = L.map('map').setView([7.941825906384453, 124.49841490156703], 9);
+			var map = L.map('map').setView([7.941825906384453, 124.49841490156703], 8);
 				L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWx2aW5tZXJ0byIsImEiOiJjazM3MjBobDEwN3ZvM21wemx6aG5tNHlqIn0.ch2yPYUkeOn1ih6nbfAm1A', {
 				    maxZoom: 19,
 				    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -596,6 +666,7 @@
 				dataType : "json",
 				success  : function(data) {
 					// the_sectors
+					$("<option value='all'>All</option>").appendTo("#the_sectors");
 					for(var i = 0; i <= data.length-1; i++) {
 						$("<option value='"+data[i]+"'>"+data[i]+"</option>").appendTo("#the_sectors");
 					}
@@ -609,6 +680,7 @@
 				type 	 : "get",
 				dataType : "json",
 				success  : function(data) {
+					$("<option value='all'>All</option>").appendTo("#the_funders");
 					for(var i = 0; i <= data.length-1; i++) {
 						$("<option value='"+data[i]+"'>"+data[i]+"</option>").appendTo("#the_funders");
 					}
@@ -621,9 +693,12 @@
 				// create_chart_per_commo( $(this).data("text") );
 			});
 
-			$(document).on("click",'#thefilter', function(){
+			
+			// $(document).on("click",'#thefilter', function(){
+			$(document).on("change",'#the_sectors', function(){
 				var sector = $(document).find("#the_sectors").val();
-				var funder = $(document).find("#the_funders").val();
+				// var funder = $(document).find("#the_funders").val();
+				var funder = $(document).find(".selected_top").text();
 
 				marker.clearLayers();
 
@@ -635,7 +710,47 @@
 					width: "0"+"px"
 				},300);
 
+
+				if (funder.trim() == "all" || funder.trim().length == 0) {
+					funder = "false";
+				}
+	
+
+				if (sector.trim("") == "all") {
+					sector = "false";
+				}
+				
 				get_points(sector, funder);
+			});
+
+			$(document).on("click","#the_sectors_top li", function(){
+				var funder = $(this).text();
+				var sector = $(document).find("#the_sectors").val();
+
+				marker.clearLayers();
+
+				map.setView([7.941825906384453, 124.49841490156703], 8);
+
+				var ls = $(document).find("#leftsidediv");
+
+				ls.animate({
+					width: "0"+"px"
+				},300);
+
+				if (funder.trim("") == "all") {
+					funder = "false";
+				}
+
+				if (sector.trim("") == "all") {
+					sector = "false";
+				}
+
+				get_points(sector, funder);
+
+				// selected_top
+
+				$(this).addClass("selected_top").siblings().removeClass("selected_top");
+
 			});
 
 			$(document).on("click","#refreshbtn", function(){
@@ -787,7 +902,9 @@
 
 				$(this).siblings().hide();
 				// $(this).
-			})
+			});
+
+
 		</script>
 	</body>
 </html>
