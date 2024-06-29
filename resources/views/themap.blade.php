@@ -61,12 +61,12 @@
 
 			.topsidediv {
 				padding-bottom: 15px;
-				width: 72%;
+				width: 100%;
 				position: fixed;
 				top: 0;
 				z-index: 10000;
 				margin-top: 10px;
-				margin-left: 410px;
+/*				margin-left: 410px;*/
 				overflow-x:hidden;
 				scroll-behavior: smooth;
 			}
@@ -341,132 +341,159 @@
 			  text-decoration: underline;
 			  cursor: pointer;
 			}
+
+			.wrapper_left_top {
+				display: flex;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="map"></div>
-		<div class="leftsidediv" id="leftsidediv">
-			<!-- <div class='thesearch'>
-				<input type='text' class="thetext"/>
-			</div> -->
-			<div class="content-div">
-				<!-- <div class='theimage'>
-					<img src="https://lh5.googleusercontent.com/p/AF1QipOkl7JgGFiTBIrjOb6a4ruRb4I4WnGjpJscTyFL=w426-h240-k-no"/>
+		<!-- <div class="wrapper_left_top"> -->
+			<div class="leftsidediv" id="leftsidediv">
+				<!-- <div class='thesearch'>
+					<input type='text' class="thetext"/>
 				</div> -->
-				<div class="thecontent">
-					<div class="the_pictures">
-						<ul id="theslider">
-							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
-							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
-							<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
-						</ul>
-						<div style="text-align:center;">
-							<span class="material-symbols-outlined action_btn" data-btn="prev"> arrow_back_ios </span>
-							<span class="material-symbols-outlined action_btn" data-btn="next"> arrow_forward_ios </span>
-						</div>
-					</div>
-					<div class="thetopdiv">
-						<h2 style="font-size: 19px;font-weight: normal;" id='the_proj_title'> This is the Title of the Project </h2>
-						<p style="font-size: 13px;" id="the_funder"> GIZ Initiated Project </p>
-					</div>
-					<div class="themaincontent">
-						<div class="thenavigation">
-							<ul id='the_info_nav'>
-								<li class="selected" data-the_tab="the_project"> The Project </li>
-								<li data-the_tab="the_donor_div"> The Donor </li>
-								<!-- <li> Pictures </li> -->
+				<div class="content-div">
+					<!-- <div class='theimage'>
+						<img src="https://lh5.googleusercontent.com/p/AF1QipOkl7JgGFiTBIrjOb6a4ruRb4I4WnGjpJscTyFL=w426-h240-k-no"/>
+					</div> -->
+					<div class="thecontent">
+						<div class="the_pictures">
+							<ul id="theslider">
+								<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
+								<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
+								<li> <img src='https://lh3.googleusercontent.com/p/AF1QipNKKDIIJlHffUfCMyBM2tm8IYPbUMhyMa8_2StG=s1360-w1360-h1020'/> </li>
 							</ul>
+							<div style="text-align:center;">
+								<span class="material-symbols-outlined action_btn" data-btn="prev"> arrow_back_ios </span>
+								<span class="material-symbols-outlined action_btn" data-btn="next"> arrow_forward_ios </span>
+							</div>
 						</div>
-						<div class="thecont_main">
-							<div id="the_project">
-								<ul id="the_invs">
-									<!-- <li>
-										<div> <span class="material-symbols-outlined"> title </span>  </div>
-										<div> 
-											<span class='the_div_title'> Project Title </span> 
-											<p class='the_desc_txt'> This is the Title of the project </p>
-										</div> 
-									</li> -->
-									<li>
-										<!-- <div> <span class="material-symbols-outlined"> description </span>  </div> -->
-										<div> 
-											<span class='the_div_title'> Project Description </span> 
-											<p class='the_desc_txt' id="the_desc"> This is the project description of the project, lorem ipsum dolor set amit </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> favorite </span>  </div>
-										<div>
-											<span class='the_div_title'> Donor Agency </span> 
-											<p class='the_desc_txt' id='the_donor'> GIZ </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> donut_small </span>  </div>
-										<div>
-											<span class='the_div_title'> Sector </span> 
-											<p class='the_desc_txt' id="the_sector"> Infrastructure </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> location_on </span>  </div>
-										<div> 
-											<span class='the_div_title'> Exact Location </span> 
-											<p class='the_desc_txt' id="the_loc"> XPGF+2R7, Kaputian, Island Garden City of Samal, Davao del Norte, Philippines  </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> payments </span>  </div>
-										<div>
-											<span class='the_div_title'> Proposed Amount </span> 
-											<p class='the_desc_txt' id="prop_amount"> 2,590,305.00 PHP </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> attach_money </span>  </div>
-										<div>
-											<span class='the_div_title'> Assistance Amount </span> 
-											<p class='the_desc_txt' id="asst_amount"> 2,390,305.00 PHP </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> currency_exchange </span>  </div>
-										<div>
-											<span class='the_div_title'> Currency </span> 
-											<p class='the_desc_txt' id="currency"> USD </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> Support </span>  </div>
-										<div>
-											<span class='the_div_title'> Type of Assistance </span> 
-											<p class='the_desc_txt' id="ta_type"> Grant </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> detector_status </span>  </div>
-										<div>
-											<span class='the_div_title'> Status </span> 
-											<p class='the_desc_txt' id="proj_status"> On-Going </p>
-										</div> 
-									</li>
-									<li>
-										<div> <span class="material-symbols-outlined"> update </span>  </div>
-										<div>
-											<span class='the_div_title'> Latest Updates </span> 
-											<p class='the_desc_txt' id="the_updates"> This is the latest update of the project hey hey hey hey </p>
-										</div> 
-									</li>
+						<div class="thetopdiv">
+							<h2 style="font-size: 19px;font-weight: normal;" id='the_proj_title'> This is the Title of the Project </h2>
+							<p style="font-size: 13px;" id="the_funder"> GIZ Initiated Project </p>
+						</div>
+						<div class="themaincontent">
+							<div class="thenavigation">
+								<ul id='the_info_nav'>
+									<li class="selected" data-the_tab="the_project"> The Project </li>
+									<li data-the_tab="the_donor_div"> The Donor </li>
+									<!-- <li> Pictures </li> -->
 								</ul>
 							</div>
-							<div id="the_donor_div">
+							<div class="thecont_main">
+								<div id="the_project">
+									<ul id="the_invs">
+										<!-- <li>
+											<div> <span class="material-symbols-outlined"> title </span>  </div>
+											<div> 
+												<span class='the_div_title'> Project Title </span> 
+												<p class='the_desc_txt'> This is the Title of the project </p>
+											</div> 
+										</li> -->
+										<li>
+											<!-- <div> <span class="material-symbols-outlined"> description </span>  </div> -->
+											<div> 
+												<span class='the_div_title'> Project Description </span> 
+												<p class='the_desc_txt' id="the_desc"> This is the project description of the project, lorem ipsum dolor set amit </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> favorite </span>  </div>
+											<div>
+												<span class='the_div_title'> Donor Agency </span> 
+												<p class='the_desc_txt' id='the_donor'> GIZ </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> donut_small </span>  </div>
+											<div>
+												<span class='the_div_title'> Sector </span> 
+												<p class='the_desc_txt' id="the_sector"> Infrastructure </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> location_on </span>  </div>
+											<div> 
+												<span class='the_div_title'> Exact Location </span> 
+												<p class='the_desc_txt' id="the_loc"> XPGF+2R7, Kaputian, Island Garden City of Samal, Davao del Norte, Philippines  </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> payments </span>  </div>
+											<div>
+												<span class='the_div_title'> Proposed Amount </span> 
+												<p class='the_desc_txt' id="prop_amount"> 2,590,305.00 PHP </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> attach_money </span>  </div>
+											<div>
+												<span class='the_div_title'> Assistance Amount </span> 
+												<p class='the_desc_txt' id="asst_amount"> 2,390,305.00 PHP </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> currency_exchange </span>  </div>
+											<div>
+												<span class='the_div_title'> Currency </span> 
+												<p class='the_desc_txt' id="currency"> USD </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> Support </span>  </div>
+											<div>
+												<span class='the_div_title'> Type of Assistance </span> 
+												<p class='the_desc_txt' id="ta_type"> Grant </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> detector_status </span>  </div>
+											<div>
+												<span class='the_div_title'> Status </span> 
+												<p class='the_desc_txt' id="proj_status"> On-Going </p>
+											</div> 
+										</li>
+										<li>
+											<div> <span class="material-symbols-outlined"> update </span>  </div>
+											<div>
+												<span class='the_div_title'> Latest Updates </span> 
+												<p class='the_desc_txt' id="the_updates"> This is the latest update of the project hey hey hey hey </p>
+											</div> 
+										</li>
+									</ul>
+								</div>
+								<div id="the_donor_div">
 
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			
+			<div class="topsidediv">
+				<!-- <div class=""> <span class="material-symbols-outlined"> menu </span> </div> -->
+				<ul id='the_sectors_top'>
+					<li class="selected_top"> all </li>
+					<?php
+						foreach($funders as $f) {
+							echo "<li>";
+								echo $f;
+								// echo "<ul class='the_sub_ul'>";
+								// 	foreach($the_return as $tr) {
+								// 		echo "<li> {$tr} </li>";
+								// 	}
+								// echo "</ul>";
+							echo "</li>";
+						}
+					?>
+				</ul>		
+			</div>
+		<!-- </div> -->
+
+
 				<div class="the_box">
 					<table class="table_right">
 						<tr>
@@ -499,24 +526,6 @@
 						</tr>
 					</table>
 				</div>
-		<div class="topsidediv">
-				<!-- <div class=""> <span class="material-symbols-outlined"> menu </span> </div> -->
-				<ul id='the_sectors_top'>
-					<li class="selected_top"> all </li>
-					<?php
-						foreach($funders as $f) {
-							echo "<li>";
-								echo $f;
-								// echo "<ul class='the_sub_ul'>";
-								// 	foreach($the_return as $tr) {
-								// 		echo "<li> {$tr} </li>";
-								// 	}
-								// echo "</ul>";
-							echo "</li>";
-						}
-					?>
-				</ul>		
-		</div>
 
 		<div id="right_side">
 			<div style="padding: 0px 20px;" id='general_info'>
@@ -558,6 +567,17 @@
 			// outdoors-v9
 			// 
 
+			var adb = L.icon({
+				    iconUrl: "{{asset('images/adb.png')}}",
+				    shadowUrl: 'leaf-shadow.png',
+
+				    iconSize:     [38, 95], // size of the icon
+				    shadowSize:   [50, 64], // size of the shadow
+				    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+				    shadowAnchor: [4, 62],  // the same for the shadow
+				    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+				});
+
 			var map = L.map('map').setView([7.941825906384453, 124.49841490156703], 8);
 				L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWx2aW5tZXJ0byIsImEiOiJjazM3MjBobDEwN3ZvM21wemx6aG5tNHlqIn0.ch2yPYUkeOn1ih6nbfAm1A', {
 				    maxZoom: 19,
@@ -571,6 +591,13 @@
 
 				ls.animate({
 					width: "400"+"px"
+				},300);
+
+				var ts   = $(document).find(".topsidediv");
+				
+				ts.animate({
+					"margin-left":"410"+"px",
+					"width":"75"+"%"
 				},300);
 
 				// console.log(big_lat+"-"+big_lng);
@@ -636,6 +663,7 @@
 									    style: function (feature) {
 									        return {color: feature.properties.color};
 									    },
+									    icon : adb,
 									    onEachFeature : function(feature, layer) {
 									    	layer.on("click", function(layer) {
 									    		var lat = layer.latlng.lat;
@@ -747,6 +775,13 @@
 				if (sector.trim("") == "all") {
 					sector = "false";
 				}
+
+				var ts   = $(document).find(".topsidediv");
+				
+				ts.animate({
+					"margin-left":"0"+"px",
+					"width":"100"+"%"
+				},300);
 
 				get_points(sector, funder);
 
