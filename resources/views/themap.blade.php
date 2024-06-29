@@ -66,7 +66,7 @@
 				top: 0;
 				z-index: 10000;
 				margin-top: 10px;
-/*				margin-left: 410px;*/
+				margin-left:55px;
 				overflow-x:hidden;
 				scroll-behavior: smooth;
 			}
@@ -779,7 +779,7 @@
 				var ts   = $(document).find(".topsidediv");
 				
 				ts.animate({
-					"margin-left":"0"+"px",
+					"margin-left":"55"+"px",
 					"width":"100"+"%"
 				},300);
 
